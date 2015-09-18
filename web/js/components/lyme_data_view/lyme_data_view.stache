@@ -1,0 +1,1 @@
+<p>{{currCounty.CountyName}}, {{currCounty.StateName}}: {{currCounty.ConfirmedCount_2007_2011}} cases of Lyme Disease in 2011... more details coming soon!!</p>

@@ -1,0 +1,18 @@
+<lyme-nav></lyme-nav>
+
+{{#if isMap}}
+	<lyme-map counties="{appState.counties}" 
+			  height="{appState.height}" 
+			  date-range="{appState.dateRange}"
+			  curr-county="{appState.currCounty}"
+			  is-map-view="{appState.isMapView}" 
+			  class='fill-height fill-width'></lyme-map>
+{{/if}}
+{{#if isCounty}}
+	<lyme-data-view curr-county="{appState.currCounty}"
+					height="{appState.height}"
+					is-map-view="{appState.isMapView}"
+					class="fill-height fill-width"></lyme-data-view>
+{{/if}}
+
+<lyme-foot date-range="{appState.dateRange}"></lyme-foot>

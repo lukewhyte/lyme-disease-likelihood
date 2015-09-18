@@ -1,0 +1,5 @@
+<lyme-data-overlay counties="{counties}" 
+				   curr-county="{currCounty}" 
+				   date-range="{dateRange}"
+				   is-map-view="{appState.isMapView}"  
+				   map="{map}"></lyme-data-overlay>

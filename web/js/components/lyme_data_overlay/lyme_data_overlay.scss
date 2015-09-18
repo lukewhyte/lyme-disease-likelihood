@@ -1,0 +1,22 @@
+.qtip-youtube {
+	background-image: none;
+	background: none;
+	background-color: rgba(51, 51, 51, 0.9);
+
+	.qtip-content {
+		color: white;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 1em;
+		text-align: center;
+		padding: 0;
+
+		a, a:visited, a:active, a:hover {
+			text-decoration: none;
+			color: white;
+
+			span {
+				color: $lightBlue;
+			}
+		}
+	}
+}

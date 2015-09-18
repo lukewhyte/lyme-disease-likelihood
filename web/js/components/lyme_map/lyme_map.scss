@@ -1,0 +1,20 @@
+lyme-map.fill-height {
+	margin-top: 42px;
+
+	#map {
+		cursor: default;
+
+		.counties {
+		  stroke: $lightGray;
+		  stroke-width: 0.5;
+		  stroke-opacity: 0.5;
+		  stroke-linejoin: round;
+		  outline: none !important; // necessary b/c tipsy is being a dick
+
+		  &:hover {
+		  	stroke-width: 1;
+		  	stroke-opacity: 0.8;
+		  }
+		}
+	}
+}

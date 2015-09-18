@@ -1,0 +1,240 @@
+@import url(../bower_components/normalize-css/normalize.css);
+@import url(../node_modules/leaflet/dist/leaflet.css);
+@import url(../bower_components/qtip2/jquery.qtip.min.css);
+@import url("http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700");
+@import url(/node_modules/c3/c3.min.css);
+body {
+  background: #ffffff url("../images/bg.png") repeat 0 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.625em;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.fill-height {
+  height: 100%;
+  display: block;
+}
+
+.fill-width {
+  width: 100%;
+}
+
+.text-block {
+  width: 70%;
+  margin: 35px auto 0;
+}
+@media only screen and (max-width: 1024px) {
+  .text-block {
+    width: 90%;
+  }
+}
+.text-block p, .text-block li {
+  font-size: 1.5em;
+  line-height: 1.7;
+}
+.text-block p span, .text-block li span {
+  color: #2ba3d4;
+}
+.text-block p a, .text-block li a {
+  text-decoration: none;
+}
+.text-block p a:link, .text-block p a:visited, .text-block li a:link, .text-block li a:visited {
+  color: #2ba3d4;
+}
+.text-block p a:hover, .text-block li a:hover {
+  color: #333333;
+}
+
+/********************************************************
+ * Footer styles begin here
+ ********************************************************/
+footer {
+  width: 40%;
+  height: 100px;
+  margin: 50px auto 0;
+  border-top: 1px solid #f1f1f1;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.qtip-youtube {
+  background-image: none;
+  background: none;
+  background-color: rgba(51, 51, 51, 0.9);
+}
+.qtip-youtube .qtip-content {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  text-align: center;
+  padding: 0;
+}
+.qtip-youtube .qtip-content a, .qtip-youtube .qtip-content a:visited, .qtip-youtube .qtip-content a:active, .qtip-youtube .qtip-content a:hover {
+  text-decoration: none;
+  color: white;
+}
+.qtip-youtube .qtip-content a span, .qtip-youtube .qtip-content a:visited span, .qtip-youtube .qtip-content a:active span, .qtip-youtube .qtip-content a:hover span {
+  color: #2ba3d4;
+}
+
+lyme-data-view p {
+  margin: 100px;
+  font-size: 1.2em;
+}
+
+lyme-main {
+  min-height: 800px;
+}
+
+lyme-map.fill-height {
+  margin-top: 42px;
+}
+lyme-map.fill-height #map {
+  cursor: default;
+}
+lyme-map.fill-height #map .counties {
+  stroke: #AEAEAE;
+  stroke-width: 0.5;
+  stroke-opacity: 0.5;
+  stroke-linejoin: round;
+  outline: none !important;
+}
+lyme-map.fill-height #map .counties:hover {
+  stroke-width: 1;
+  stroke-opacity: 0.8;
+}
+
+lyme-nav {
+  height: 42px;
+  width: 100%;
+  color: #FFF;
+  font-family: 'Open Sans Condensed', sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #333333;
+  z-index: 1000;
+}
+lyme-nav .left {
+  margin: 0 0 5px 4%;
+  float: left;
+}
+@media only screen and (max-width: 768px) {
+  lyme-nav .left {
+    margin: 0 0 5px 2%;
+  }
+}
+lyme-nav .left h1 {
+  font-weight: normal;
+  font-size: 2.2em;
+  float: left;
+  margin-top: 5px;
+}
+lyme-nav .left h1 a {
+  text-decoration: none;
+}
+lyme-nav .left h1 a:link, lyme-nav .left h1 a:visited {
+  color: #FFF;
+}
+lyme-nav .left h1 a:hover {
+  color: #2ba3d4;
+}
+lyme-nav .right {
+  float: right;
+  margin: 2px 4% 5px 0;
+}
+@media only screen and (max-width: 768px) {
+  lyme-nav .right {
+    margin: 2px 2% 5px 0;
+  }
+}
+lyme-nav .right ul {
+  list-style-type: none;
+  margin: 0;
+}
+lyme-nav .right ul li {
+  float: left;
+  margin: 6px 34px 0 0;
+  font-size: 1.8em;
+}
+lyme-nav .right ul li a {
+  text-decoration: none;
+}
+lyme-nav .right ul li a:link, lyme-nav .right ul li a:visited {
+  color: #FFF;
+}
+lyme-nav .right ul li a:hover {
+  color: #2ba3d4;
+}
+
+/*# sourceMappingURL=dev.css.map */
