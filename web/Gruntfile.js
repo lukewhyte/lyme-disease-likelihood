@@ -5,8 +5,11 @@ module.exports = function(grunt) {
 			default: {
 				options: {
 					system: {
-						config: __dirname + "/stealconfig.js",
+						config: __dirname + "/package.json!npm",
 						main: 'main'
+					},
+					buildOptions: {
+						bundleSteal: true
 					}
 				}
 			}
@@ -52,6 +55,15 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		concat_css: {
+			all: {
+				src: ['bower_components/normalize-css/normalize.css', 
+					  'node_modules/leaflet/dist/leaflet.css', 
+					  'bower_components/qtip2/jquery.qtip.min.css',
+					  'node_modules/c3/c3.min.css'],
+				dest: 'sass/deps.css'
+			}
+		},
 		watch: {
 			express: {
 				files:  [ '*.js' ],
@@ -73,8 +85,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-shell-spawn');
 	grunt.loadNpmTasks('grunt-sass-import');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-concat-css');
 	
-	grunt.registerTask("build", ['sass_import', 'sass:dist', "steal-build"]);
-	grunt.registerTask('dev', ['shell:mongo', 'express:dev', 'sass_import', 'sass:dev', 'watch']);
+	grunt.registerTask("build", ['concat_css', 'sass_import', 'sass:dist', "steal-build"]);
+	grunt.registerTask('dev', ['shell:mongo', 'express:dev', 'concat_css', 'sass_import', 'sass:dev', 'watch']);
 
 };

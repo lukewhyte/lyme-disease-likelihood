@@ -19,7 +19,7 @@ export default can.Component.extend({
     				}
     			}
     		},
-    		dateRange: { type: 'string', value: '2007_2011' },
+    		dateRange: { type: 'string', value: 'Cases2014' },
     		map: { 
     			type: '*', 
     			value: null,
@@ -38,7 +38,7 @@ export default can.Component.extend({
     	},
 
     	getDateRange: can.compute(function () {
-    		return 'ConfirmedCount_' + this.attr('dateRange');
+    		return this.attr('dateRange');
     	}),
 
     	mapColor: d3.rgb('#741111'),
@@ -100,8 +100,8 @@ export default can.Component.extend({
 					content: {
 						text: '<p><a href="#!county/' + vm.attr('currCountyId') + '">' +
 							  'Click to see lyme statistics for <br><span>' +
-							  vm.attr('currCounty').CountyName + ', ' +
-							  vm.attr('currCounty').StateName + '</span></a></p>'
+							  vm.attr('currCounty').CTYNAME + ', ' +
+							  vm.attr('currCounty').STNAME + '</span></a></p>'
 					},
 					style: { 
 						classes: 'qtip-youtube',
@@ -118,6 +118,10 @@ export default can.Component.extend({
 
     	addDataToMap: function (data) {
     		this.map.svg.selectAll('g').remove(); // make sure svg is empty
+
+    		// this whole thing can be tweaked now that I have a better sense of joins...
+    		// joins will allow you to update existing dom elements instead of creating new elements!!
+    		// joins: http://bost.ocks.org/mike/join/
 
     	// 	this.map.view.on('moveend', () => { // might need later when adding footer
 	  		// 	console.log(this.map.view.getCenter());

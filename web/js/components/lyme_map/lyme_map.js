@@ -47,7 +47,6 @@ export default can.Component.extend({
     events: {
     	inserted: function () {
     		this.element.append($mapWrap.css('width', this.element.width()));
-    		this.viewModel.attr('height', $(window).height() - $('lyme-nav').height());
 
     		if (!map) { // only instantiate map once
     			map = this.viewModel.mapAPI();

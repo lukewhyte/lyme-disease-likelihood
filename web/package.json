@@ -15,9 +15,40 @@
   ],
   "author": "Luke Whyte, Seismograph",
   "license": "MIT",
-  "system": {},
+  "system": {
+    "map": {
+      "jquery/jquery": "jquery",
+      "can/util/util.js": "can/util/jquery/jquery.js"
+    },
+    "paths": {
+      "can/*": "node_modules/can/*.js",
+      "can": "node_modules/can/can.js",
+      "jquery": "bower_components/jquery/dist/jquery.js",
+      "lodash": "bower_components/lodash/lodash.min.js",
+      "d3": "bower_components/d3/d3.min.js",
+      "c3": "node_modules/c3/c3.min.js",
+      "appState": "js/models/appState.js"
+    },
+    "ext": {
+      "stache": "can/view/stache/system"
+    },
+    "meta": {
+      "jquery": {
+        "exports": "jQuery"
+      },
+      "d3": {
+        "exports": "d3"
+      }
+    },
+    "buildConfig": {
+      "map": {
+        "can/util/util": "can/util/domless/domless"
+      }
+    }
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-concat-css": "^0.3.1",
     "grunt-contrib-sass": "^0.9.2",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-express-server": "^0.5.1",

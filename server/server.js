@@ -19,14 +19,24 @@ mongoose.connect('mongodb://localhost/lymelikelihood');
 
 //Schemas
 var Data = new mongoose.Schema({
-  stateCode: Number,
-  countyCode: Number,
-  stateName: String,
-  countyName: String,
-  confirmedCount_1992_1996: Number,
-  confirmedCount_1997_2001: Number,
-  confirmedCount_2002_2006: Number,
-  confirmedCount_2007_2011: Number
+  STNAME: String,
+  CTYNAME: String,
+  Cases2000: Number,
+  Cases2001: Number,
+  Cases2002: Number,
+  Cases2003: Number,
+  Cases2004: Number,
+  Cases2005: Number,
+  Cases2006: Number,
+  Cases2007: Number,
+  Cases2008: Number,
+  Cases2009: Number,
+  Cases2010: Number,
+  Cases2011: Number,
+  Cases2012: Number,
+  Cases2013: Number,
+  Cases2014: Number,
+  totalPop: Number
 });
 
 //Models

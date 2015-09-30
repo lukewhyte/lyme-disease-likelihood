@@ -1,8 +1,6 @@
 @import 'helpers/variables.scss';
 @import 'helpers/mixins.scss';
-@import '../bower_components/normalize-css/normalize.css';
-@import '../node_modules/leaflet/dist/leaflet.css';
-@import '../bower_components/qtip2/jquery.qtip.min.css';
+@import 'sass/deps.css';
 @import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700');
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700');
 

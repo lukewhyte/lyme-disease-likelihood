@@ -1,0 +1,28 @@
+{
+  "name": "Lyme Likelihood",
+  "version": "1.0.0",
+  "homepage": "https://github.com/lukewhyte/lyme-disease-likelihood",
+  "authors": [
+    "lukewhyte <lukeawhyte@gmail.com>"
+  ],
+  "description": "How likely are you to get Lyme Disease?",
+  "main": "main.js",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.5.6",
+    "jquery": "~2.1.4",
+    "lodash": "~3.10.1",
+    "normalize-css": "normalize.css#~3.0.3",
+    "qtip2": "~2.2.1"
+  }
+}

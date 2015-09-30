@@ -1,5 +1,6 @@
 // utils
 import can from 'can';
+import _ from 'lodash';
 
 // views
 import template from "./lyme_main.stache!";
@@ -40,6 +41,8 @@ export default can.Component.extend({
     		if (!can.route.attr('page')) {
     			can.route.attr('page', 'map');
     		}
+
+            this.viewModel.attr('appState').attr('height', $(window).height() - $('lyme-nav').height());
 
     		def.then((counties) => {
     			var vm = this.viewModel,
