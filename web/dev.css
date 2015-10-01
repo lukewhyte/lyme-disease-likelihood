@@ -128,7 +128,6 @@ lyme-area-chart {
   width: 44%;
   margin: 20px 0 0 4%;
   display: inline-block;
-  float: left;
 }
 
 .qtip-youtube {
@@ -168,6 +167,9 @@ lyme-data-view .info {
   text-align: center;
   font-size: 2em;
 }
+lyme-data-view lyme-area-chart {
+  float: left;
+}
 
 lyme-main {
   min-height: 800px;
@@ -189,6 +191,47 @@ lyme-map.fill-height #map .counties {
 lyme-map.fill-height #map .counties:hover {
   stroke-width: 1;
   stroke-opacity: 0.8;
+}
+
+lyme-nationwide {
+  width: 100%;
+  margin-top: 80px;
+  text-align: center;
+}
+lyme-nationwide lyme-radial-chart {
+  width: 100%;
+}
+lyme-nationwide lyme-radial-chart .axis path,
+lyme-nationwide lyme-radial-chart .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+lyme-nationwide lyme-radial-chart .x.axis path {
+  display: none;
+}
+lyme-nationwide lyme-radial-chart path.country:hover {
+  fill-opacity: 0.6;
+}
+lyme-nationwide lyme-radial-chart .legend {
+  fill: none;
+  stroke: none;
+}
+lyme-nationwide lyme-radial-chart .legend .header {
+  font-size: 2.2em;
+  fill: #333333;
+}
+lyme-nationwide lyme-radial-chart .legend .subhead {
+  font-size: 1.4em;
+  fill: #333333;
+}
+lyme-nationwide lyme-radial-chart .legend .desc {
+  font-size: 1.3em;
+  fill: #333333;
+}
+lyme-nationwide lyme-area-chart {
+  width: 80%;
+  margin: 100px auto 40px;
 }
 
 lyme-nav {

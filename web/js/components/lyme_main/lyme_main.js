@@ -9,6 +9,7 @@ import template from "./lyme_main.stache!";
 import '../lyme_nav/lyme_nav';
 import '../lyme_map/lyme_map';
 import '../lyme_data_view/lyme_data_view';
+import '../lyme_nationwide/lyme_nationwide';
 
 // models
 import Cases from '../../models/cases';
@@ -34,6 +35,9 @@ export default can.Component.extend({
         },
         isCounty: function () {
         	return can.route.attr('page') === 'county';
+        },
+        isNationwide: function () {
+            return can.route.attr('page') === 'nationwide';
         }
     },
     events: {

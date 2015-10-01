@@ -60,7 +60,7 @@ export default can.Component.extend({
 			if (this.viewModel.attr('cases')) {
 				var label = this.viewModel.attr('label'),
 					data = this.viewModel.attr('cases'),
-					width = this.element.parent().width() * 0.44,
+					width = this.element.width(),
 					height = this.viewModel.attr('height'),
 					colors = {};
 

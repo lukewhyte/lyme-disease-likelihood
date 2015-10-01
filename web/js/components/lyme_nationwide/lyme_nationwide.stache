@@ -1,0 +1,2 @@
+<lyme-radial-chart counties="{topCounties}" height="{height}"></lyme-radial-chart>
+<lyme-area-chart curr-county="{nationwide}" height="{areaChartHeight}" label="{areaChartLabel}"></lyme-area-chart>

@@ -14,5 +14,11 @@
 					is-map-view="{appState.isMapView}"
 					class="fill-height fill-width"></lyme-data-view>
 {{/if}}
+{{#if isNationwide}}
+	<lyme-nationwide height="{appState.height}"
+					is-map-view="{appState.isMapView}"
+					counties="{appState.counties}"
+					class="fill-height fill-width"></lyme-nationwide>
+{{/if}}
 
 <lyme-foot date-range="{appState.dateRange}"></lyme-foot>

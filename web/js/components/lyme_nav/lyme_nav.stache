@@ -1,10 +1,10 @@
 <div class="left clearfix">
-	<h1><a href="#!map">How Likely Are You To Get Lyme Disease?</a></h1>
+	<h1><a href="#!map">Where Are You Most Likely To Get Lyme Disease?</a></h1>
 </div>
 <div class="right clearfix">
 	<ul>
 		<li><a href="#!map">Map</a></li>
-		<li><a href="#!">Nationwide</a></li>
+		<li><a href="#!nationwide">Nationwide</a></li>
 		<li><a href="#!">About</a></li>
 	</ul>
 </div>
