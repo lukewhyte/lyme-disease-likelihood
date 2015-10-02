@@ -125,7 +125,6 @@ footer {
 }
 
 lyme-area-chart {
-  width: 44%;
   margin: 20px 0 0 4%;
   display: inline-block;
 }
@@ -152,23 +151,20 @@ lyme-area-chart {
 
 lyme-data-view {
   margin-top: 80px;
+  text-align: center;
 }
 lyme-data-view h2 {
   font-size: 2.4em;
-  text-align: center;
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: normal;
+  color: #333333;
+}
+lyme-data-view h2 span {
   color: #2ba3d4;
 }
-lyme-data-view .info {
-  width: 44%;
-  float: left;
-  margin: 0 0 0 2%;
-  text-align: center;
-  font-size: 2em;
-}
 lyme-data-view lyme-area-chart {
-  float: left;
+  margin: 30px auto 0;
+  width: 80%;
 }
 
 lyme-main {
@@ -216,22 +212,43 @@ lyme-nationwide lyme-radial-chart path.country:hover {
 lyme-nationwide lyme-radial-chart .legend {
   fill: none;
   stroke: none;
+  font-size: 2.4em;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: normal;
 }
 lyme-nationwide lyme-radial-chart .legend .header {
-  font-size: 2.2em;
   fill: #333333;
 }
 lyme-nationwide lyme-radial-chart .legend .subhead {
-  font-size: 1.4em;
+  font-size: 0.7em;
   fill: #333333;
 }
 lyme-nationwide lyme-radial-chart .legend .desc {
-  font-size: 1.3em;
+  font-size: 0.6em;
   fill: #333333;
+}
+lyme-nationwide .arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 36px solid transparent;
+  border-right: 36px solid transparent;
+  border-top: 36px solid #333333;
+  opacity: 0.6;
+  position: absolute;
+  right: 6%;
+}
+lyme-nationwide h2 {
+  font-size: 2.4em;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: normal;
+  color: #333333;
+}
+lyme-nationwide h2 span {
+  color: #2ba3d4;
 }
 lyme-nationwide lyme-area-chart {
   width: 80%;
-  margin: 100px auto 40px;
+  margin: 0 auto 40px;
 }
 
 lyme-nav {

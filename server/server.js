@@ -8,14 +8,15 @@ var express = require( 'express' ), //Web framework
 var app = express();
 
 //Start server
-var port = 9876;
+var port = process.env.PORT || 9876;
 
 app.listen( port, function () {
   console.log( 'Express server listening on port %d in %s mode', port, app.settings.env );
 });
 
 //Connect to database
-mongoose.connect('mongodb://localhost/lymelikelihood');
+var dbUrl = process.env.MONGOHQ_URL || 'mongodb://localhost/lymelikelihood'
+mongoose.connect(dbUrl);
 
 //Schemas
 var Data = new mongoose.Schema({

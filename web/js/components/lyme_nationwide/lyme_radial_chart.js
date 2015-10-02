@@ -9,6 +9,7 @@ export default can.Component.extend({
 	tag: 'lyme-radial-chart',
 	viewModel: {
 		define: {
+			vizLoaded: { type: 'boolean', value: false },
 			counties: {
 				type: '*',
 				value: null
@@ -23,14 +24,25 @@ export default can.Component.extend({
 				value: 0, 
 				type: 'number',
 				set: function (val) {
-					if (val) {
-						this.attr('barHeight', val / 1.5);
-					}
 					return val * 1.1;
 				}
 			},
-			barHeight: { value: 0, type: 'number' },
-			innerRadius: { type: 'number', value: 80 }
+			barHeight: { 
+				value: 0, 
+				type: 'number',
+				get: function () {
+					return this.attr('height') / 1.5;
+				} 
+			},
+			innerRadius: { type: 'number', value: 80 },
+			currCountyId: { 
+				value: 0,
+				type: 'number',
+				set: function (val) {
+					console.log(val);
+					return val;
+				}
+			}
 		},
 		states: ['Massachusetts', 'Pennsylvania', 'Connecticut', 'New Jersey', 'Maine', 'New York', 'Rhode Island', 'Delaware', 'Virginia'],
 		getColor: function () {
@@ -89,7 +101,9 @@ export default can.Component.extend({
 				.startAngle(function(d,i) { return (tilt(i) * 2 * Math.PI) / (numBars * 1.1); })
 				.endAngle(function(d,i) { return ((tilt(i) + 0.6) * 2 * Math.PI) / (numBars * 1.1); })
 				.innerRadius(this.viewModel.attr('innerRadius'))
-				.outerRadius(function (d) { return barScale(+d.Cases2014); });
+				.outerRadius(function (d) { 
+					return barScale(+d.Cases2014);  
+				});
 
 			var segments = svg.selectAll("path")
 				.data(data)
@@ -97,6 +111,13 @@ export default can.Component.extend({
 				.style("fill", function (d) { return color(d.STNAME); })
 				.attr('d', arc)
 				.attr('class', 'country')
+				.on('click', (d) => {
+					this.viewModel.attr('currCountyId', d.id);
+					can.route.attr({
+						'page': 'county',
+						'id': d.id
+					});
+				})
 				.each(function (d) {
 					$(this).qtip({
 						content: {
@@ -107,6 +128,9 @@ export default can.Component.extend({
 							target: 'mouse',
 							my: 'right bottom',
 							at: 'top left'
+						},
+						hide: {
+							event: 'blur mouseleave'
 						}
 					});
 				});
@@ -164,6 +188,11 @@ export default can.Component.extend({
 				.text(function (d) {
 					return d;
 				});
+
+			this.viewModel.attr('vizLoaded', true);
+		},
+		removed: function () {
+			d3.selectAll('svg').remove();
 		}
 	}
 });

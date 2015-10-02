@@ -1,7 +1,4 @@
-<h2>{{currCounty.CTYNAME}}, {{currCounty.STNAME}}</h2>
+<h2>{{currCounty.CTYNAME}}, {{currCounty.STNAME}} &mdash; <span>{{cases}}</span> cases of Lyme Disease in 2014 
+	out of <span>{{totalPop}}</span> residents</h2>
 
 <lyme-area-chart curr-county="{currCounty}" height="{areaChartHeight}" label="{areaChartLabel}"></lyme-area-chart>
-
-<div class="info">
-	<p>{{cases}} cases of Lyme Disease in 2014 out of {{totalPop}} residents</p>
-</div>

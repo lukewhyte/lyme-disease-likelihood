@@ -1,23 +1,18 @@
 lyme-data-view {
 	margin-top: 80px;
+	text-align: center;
 
 	h2 {
 		font-size: 2.4em;
-		text-align: center;
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-weight: normal;
-		color: $lightBlue;
-	}
+		color: $dark;
 
-	.info {
-		width: 44%;
-		float: left;
-		margin: 0 0 0 2%;
-		text-align: center;
-		font-size: 2em;
+		span { color: $lightBlue; }
 	}
 
 	lyme-area-chart {
-		float: left;
+		margin: 30px auto 0;
+		width: 80%;
 	}
 }

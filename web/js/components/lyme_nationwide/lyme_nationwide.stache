@@ -1,2 +1,9 @@
-<lyme-radial-chart counties="{topCounties}" height="{height}"></lyme-radial-chart>
-<lyme-area-chart curr-county="{nationwide}" height="{areaChartHeight}" label="{areaChartLabel}"></lyme-area-chart>
+<lyme-radial-chart counties="{topCounties}" 
+				   height="{height}" 
+				   viz-loaded="{vizLoaded}"
+				   curr-county-id="{currCountyId}"></lyme-radial-chart>
+{{#if vizLoaded}}
+	<div class="arrow-down"></div>
+	<h2><span>{{nationwide.Cases2014}}</span> cases of Lyme Disease in 2014 nationwide</h2>
+	<lyme-area-chart curr-county="{nationwide}" height="{areaChartHeight}" label="{areaChartLabel}"></lyme-area-chart>
+{{/if}}

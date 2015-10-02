@@ -24,26 +24,48 @@ lyme-nationwide {
 		.legend {
 			fill: none;
 			stroke: none;
+			font-size: 2.4em;
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-weight: normal;
 
 			.header {
-				font-size: 2.2em;
 				fill: $dark;
 			}
 
 			.subhead {
-				font-size: 1.4em;
+				font-size: 0.7em;
 				fill: $dark;
 			}
 
 			.desc {
-				font-size: 1.3em;
+				font-size: 0.6em;
 				fill: $dark;
 			}
 		}
 	}
 
+	.arrow-down {
+		width: 0; 
+		height: 0; 
+		border-left: 36px solid transparent;
+		border-right: 36px solid transparent;
+		border-top: 36px solid $dark;
+		opacity: 0.6;
+		position: absolute;
+		right: 6%;
+	}
+
+	h2 {
+		font-size: 2.4em;
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-weight: normal;
+		color: $dark;
+
+		span { color: $lightBlue; }
+	}
+
 	lyme-area-chart {
 		width: 80%;
-		margin: 100px auto 40px;
+		margin: 0 auto 40px;
 	}
 }

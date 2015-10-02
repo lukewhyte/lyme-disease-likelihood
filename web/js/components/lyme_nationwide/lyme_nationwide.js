@@ -16,6 +16,7 @@ export default can.Component.extend({
 	template: template,
 	viewModel: {
 		define: {
+			vizLoaded: { type: 'boolean', value: false },
 			areaChartLabel: {
 				type: 'string',
 				value: '# of reported Lyme Disease cases nationwide'
@@ -42,7 +43,7 @@ export default can.Component.extend({
 				set: function (counties) {
 					if (counties) {
 						var result = this.getNationwideTemplate();
-						_.forEach(counties.attr(), (county) => {
+						_.forEach(counties.attr(), (county, ctyId) => {
 							if (typeof county !== 'string') {
 								_.forEach(result, function (val, key, col) {
 									col[key] += county[key];
@@ -61,7 +62,12 @@ export default can.Component.extend({
 				value: null,
 				set: function (allCounties) {
 					if (allCounties) {
-						return _.filter(_.sortBy(allCounties.attr(), county => county.Cases2014).reverse().slice(1, 30), el => typeof el === 'object');
+						var counties = allCounties.attr();
+						delete counties._id;
+						return _.sortBy(counties, (county, ctyId) => {
+							county['id'] = ctyId; 
+							return county.Cases2014;
+						}).reverse().slice(1, 30);
 					}
 				}
 			},
@@ -73,6 +79,21 @@ export default can.Component.extend({
 						this.attr('nationwide', newVal);
 					}
 					return newVal;
+				}
+			},
+			currCounty: { 
+				Value: can.Map,
+				value: null
+			},
+			currCountyId: { 
+				value: 0,
+				type: 'number',
+				set: function (val) {
+					if (val) {
+						var counties = this.attr('counties');
+						this.attr('currCounty', counties[val]);
+					}
+					return val;
 				}
 			}
 		},
@@ -94,6 +115,18 @@ export default can.Component.extend({
 				Cases2001: 0,
 				Cases2000: 0,
 			}
+		}
+	},
+	events: {
+		'{viewModel} vizLoaded': function () {
+			setTimeout(() => {
+				var arrow = this.element.children('div.arrow-down');
+				arrow.css('top', $(window).height() * 0.9);
+				$(document).on('scroll', function () {
+					arrow.hide();
+					$(this).off('scroll');
+				});
+			}, 1);
 		}
 	}
 });
