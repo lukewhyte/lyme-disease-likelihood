@@ -8,7 +8,7 @@ var express = require( 'express' ), //Web framework
 var app = express();
 
 //Start server
-var port = process.env.PORT || 9876;
+var port = process.env.PORT || 5000;
 
 app.listen( port, function () {
   console.log( 'Express server listening on port %d in %s mode', port, app.settings.env );
