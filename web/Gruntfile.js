@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 			default: {
 				options: {
 					system: {
-						config: __dirname + "/package.json!npm",
+						config: __dirname + "/stealconfig.js",
 						main: 'main'
 					},
 					buildOptions: {
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-concat-css');
 	
-	grunt.registerTask("build", ['http-server', 'concat_css', 'sass_import', 'sass:dist', "steal-build"]);
-	grunt.registerTask('dev', ['concat_css', 'sass_import', 'sass:dev', 'watch']);
+	grunt.registerTask("build", ['concat_css', 'sass_import', 'sass:dist', "steal-build"]);
+	grunt.registerTask('dev', ['http-server', 'concat_css', 'sass_import', 'sass:dev', 'watch']);
 
 };
