@@ -14,21 +14,13 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-    	shell: {
-		    mongo: {
-		        command: "sh startMongoIfNotRunning.sh",
-		        options: {
-		            async: true
-		        }
-		    }
-		},
-		express:{
-			dev: {
-				options: {
-					script: '../server/server.js'
-				}
-			}
-		},
+		'http-server': {
+	        dev: {
+	            port: 9876,
+	            // run in parallel with other tasks 
+	            runInBackground: true,
+	        }
+	    },
 		sass_import: {
 			options: {},
 			dist: {
@@ -65,13 +57,6 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-			express: {
-				files:  [ '*.js' ],
-				tasks:  [ 'express:dev' ],
-				options: {
-					spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
-				}
-			},
 			sass: {
 				files: ['main.scss', 'sass/*', 'js/components/**/*.scss'],
 				tasks: ['sass_import', 'sass:dev']
@@ -80,14 +65,13 @@ module.exports = function(grunt) {
 	});
 	
 	grunt.loadNpmTasks("steal-tools");
-	grunt.loadNpmTasks('grunt-express-server');
+	grunt.loadNpmTasks('grunt-http-server');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-shell-spawn');
 	grunt.loadNpmTasks('grunt-sass-import');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-concat-css');
 	
-	grunt.registerTask("build", ['concat_css', 'sass_import', 'sass:dist', "steal-build"]);
-	grunt.registerTask('dev', ['shell:mongo', 'express:dev', 'concat_css', 'sass_import', 'sass:dev', 'watch']);
+	grunt.registerTask("build", ['http-server', 'concat_css', 'sass_import', 'sass:dist', "steal-build"]);
+	grunt.registerTask('dev', ['concat_css', 'sass_import', 'sass:dev', 'watch']);
 
 };
