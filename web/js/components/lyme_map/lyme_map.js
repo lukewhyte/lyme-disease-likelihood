@@ -30,7 +30,11 @@ export default can.Component.extend({
         	height: {
         		type: 'number',
         		value: 0
-        	}
+        	},
+            isLoading: { 
+                type: 'boolean',
+                value: true
+            }
         },
 
         mapAPI: function () {
@@ -47,6 +51,10 @@ export default can.Component.extend({
     events: {
     	inserted: function () {
     		this.element.append($mapWrap.css('width', this.element.width()));
+            this.element.children('#loading').css({
+                width: $mapWrap.width(),
+                height: $(window).height()
+            });
 
     		if (!map) { // only instantiate map once
     			map = this.viewModel.mapAPI();

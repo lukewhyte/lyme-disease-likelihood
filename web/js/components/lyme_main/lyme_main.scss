@@ -1,3 +1,16 @@
 lyme-main {
-	min-height: 800px;
+	div#instructions {
+		position: absolute;
+		bottom: 10%;
+		left: 4%;
+		background-color: rgba(0,0,0,0.5);
+		border: 1px white solid;
+		border-radius: 16px;
+		padding: 2%;
+		font-size: 1.8em;
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-weight: 300;
+		color: white;
+		text-align: center;
+	}
 }

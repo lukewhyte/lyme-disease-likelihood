@@ -1,0 +1,15 @@
+lyme-about {
+	div.wrapper {
+		width: 80%;
+		margin: 100px auto 40px;
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-weight: 300;
+		font-size: 2em;
+		color: $dark;
+
+		p {
+			line-height: 1.7;
+			@include textLink($lightBlue, $dark);
+		}
+	}
+}

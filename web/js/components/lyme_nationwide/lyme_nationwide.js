@@ -58,6 +58,12 @@ export default can.Component.extend({
 					}
 				}
 			},
+			totalCases: {
+				value: 0,
+				get: function () {
+					return this.attr('nationwide').Cases2014.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				}
+			},
 			topCounties: {
 				value: null,
 				set: function (allCounties) {

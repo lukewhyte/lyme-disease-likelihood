@@ -5,8 +5,13 @@
 			  height="{appState.height}" 
 			  date-range="{appState.dateRange}"
 			  curr-county="{appState.currCounty}"
-			  is-map-view="{appState.isMapView}" 
+			  is-map-view="{appState.isMapView}"
+			  is-loading="{isLoading}" 
 			  class='fill-height fill-width'></lyme-map>
+
+	{{#if instructions}}
+		<div id="instructions">Click any county for more information</div>
+	{{/if}}
 {{/if}}
 {{#if isCounty}}
 	<lyme-data-view curr-county="{appState.currCounty}"
@@ -21,5 +26,6 @@
 					 counties="{appState.counties}"
 					 class="fill-height fill-width"></lyme-nationwide>
 {{/if}}
-
-<lyme-foot date-range="{appState.dateRange}"></lyme-foot>
+{{#if isAbout}}
+	<lyme-about class="fill-height fill-width"></lyme-about>
+{{/if}}

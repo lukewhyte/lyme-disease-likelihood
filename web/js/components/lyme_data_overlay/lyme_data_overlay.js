@@ -34,7 +34,8 @@ export default can.Component.extend({
     		cornerSW: { type: '*', value: [-18.312, -236.799] },
     		isMapView: { type: 'boolean', value: true },
     		currCounty: { Value: can.Map },
-    		currCountyId: { type: 'number' }
+    		currCountyId: { type: 'number' },
+    		isLoading: { type: 'boolean', value: true }
     	},
 
     	getDateRange: can.compute(function () {
@@ -81,6 +82,7 @@ export default can.Component.extend({
 			});
 
 			this.buildTooltips();
+			this.attr('isLoading', false);
 		},
 
 		buildTooltips: function () {
@@ -119,18 +121,8 @@ export default can.Component.extend({
     	addDataToMap: function (data) {
     		this.map.svg.selectAll('g').remove(); // make sure svg is empty
 
-    		// this whole thing can be tweaked now that I have a better sense of joins...
-    		// joins will allow you to update existing dom elements instead of creating new elements!!
-    		// joins: http://bost.ocks.org/mike/join/
-
-    	// 	this.map.view.on('moveend', () => { // might need later when adding footer
-	  		// 	console.log(this.map.view.getCenter());
-	  		// })
-
     		var mapColor = this.attr('mapColor');
     		var casesDomain = this.getCasesDomain();
-
-    		// instructions should be transparent lightbox, this leaves bottom bar for just time slide
 
     		this.map.setCountyFillOpacity = this.buildOrdinalScale(casesDomain, [0.1,1]);
     		this.map.setCountyColor = this.buildOrdinalScale(casesDomain, [0.8, 0]);

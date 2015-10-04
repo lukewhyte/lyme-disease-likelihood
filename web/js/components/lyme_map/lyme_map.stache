@@ -2,4 +2,9 @@
 				   curr-county="{currCounty}" 
 				   date-range="{dateRange}"
 				   is-map-view="{appState.isMapView}"  
-				   map="{map}"></lyme-data-overlay>
+				   map="{map}"
+				   is-loading="{isLoading}"></lyme-data-overlay>
+
+{{#if isLoading}}
+	<div id="loading"><img src="/images/loading.gif" /></div>
+{{/if}}

@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "c3": "^0.4.11-rc4",
-    "can": "^2.3.0-beta.1",
+    "can": "^2.2.9",
     "jquery": "^2.1.4",
     "leaflet": "^0.7.5",
     "topojson": "^1.6.19"

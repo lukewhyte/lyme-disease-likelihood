@@ -1,5 +1,6 @@
 // utils
 import can from 'can';
+import 'can/map/define/define';
 import _ from 'lodash';
 
 // views
@@ -10,6 +11,7 @@ import '../lyme_nav/lyme_nav';
 import '../lyme_map/lyme_map';
 import '../lyme_data_view/lyme_data_view';
 import '../lyme_nationwide/lyme_nationwide';
+import '../lyme_about/lyme_about';
 
 // models
 import Cases from '../../models/cases';
@@ -29,6 +31,19 @@ export default can.Component.extend({
     tag: "lyme-main",
     template: template,
     viewModel: {
+        define: {
+            instructions: { value: false, type: 'boolean' },
+            isLoading: { 
+                value: true, 
+                type: 'boolean',
+                set: function (val) {
+                    if (!val) {
+                        this.triggerInstructions();
+                    }
+                    return val;
+                }
+            }
+        },
         appState: appState,
         isMap: function () {
         	return can.route.attr('page') === 'map';
@@ -38,15 +53,24 @@ export default can.Component.extend({
         },
         isNationwide: function () {
             return can.route.attr('page') === 'nationwide';
+        },
+        isAbout: function () {
+            return can.route.attr('page') === 'about';
+        },
+        triggerInstructions: function () {
+            this.attr('instructions', true);
+            setTimeout(() => {
+                this.attr('instructions', false);
+            }, 10000);
         }
     },
     events: {
     	inserted: function () {
+            this.viewModel.attr('appState').attr('height', $(window).height() - $('lyme-nav').height());
+            
     		if (!can.route.attr('page')) {
     			can.route.attr('page', 'map');
     		}
-
-            this.viewModel.attr('appState').attr('height', $(window).height() - $('lyme-nav').height());
 
     		def.then((counties) => {
     			var vm = this.viewModel,
@@ -57,6 +81,11 @@ export default can.Component.extend({
     				appState.attr('currCounty', appState.attr('counties')[vm.attr('currCounty')]);
     			}
     		});
-    	}
+    	},
+        'click': function () {
+            if (!this.viewModel.attr('loading')) {
+                this.viewModel.attr('instructions', false);
+            }
+        }
     }
 });

@@ -67,6 +67,10 @@ export default can.Component.extend({
 				data.unshift(label);
 				colors[label] = '#741111';
 
+				var addCommas = function (num) {
+					return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				};
+
 				c3.generate({
 					bindto: '.areaChart',
 					size: {
@@ -86,6 +90,11 @@ export default can.Component.extend({
 				    			},
 				    			rotate: 90,
 				    			culling: false
+				    		}
+				    	},
+				    	y: {
+				    		tick: {
+				    			format: function (y) { return addCommas(y) + ' cases'; }
 				    		}
 				    	}
 				    }
