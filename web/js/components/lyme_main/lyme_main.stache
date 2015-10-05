@@ -10,7 +10,7 @@
 			  class='fill-height fill-width'></lyme-map>
 
 	{{#if instructions}}
-		<div id="instructions">Click any county for more information</div>
+		<div id="instructions">Click any county for more information.</div>
 	{{/if}}
 {{/if}}
 {{#if isCounty}}

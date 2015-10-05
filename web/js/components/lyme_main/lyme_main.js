@@ -38,7 +38,7 @@ export default can.Component.extend({
                 type: 'boolean',
                 set: function (val) {
                     if (!val) {
-                        this.triggerInstructions();
+                        this.attr('instructions', true);
                     }
                     return val;
                 }
@@ -56,18 +56,12 @@ export default can.Component.extend({
         },
         isAbout: function () {
             return can.route.attr('page') === 'about';
-        },
-        triggerInstructions: function () {
-            this.attr('instructions', true);
-            setTimeout(() => {
-                this.attr('instructions', false);
-            }, 10000);
         }
     },
     events: {
     	inserted: function () {
             this.viewModel.attr('appState').attr('height', $(window).height() - $('lyme-nav').height());
-            
+
     		if (!can.route.attr('page')) {
     			can.route.attr('page', 'map');
     		}
